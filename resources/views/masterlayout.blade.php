@@ -1,66 +1,81 @@
-
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Knoxweb')</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous">
+    </script>
 </head>
+
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    {{-- navbar mulai disini --}}
+    <nav class="navbar sm:navbar-expand bg-1 fg-2">
         <div class="container-fluid">
-
-            <a class="navbar-brand fw-bold" href="/">
-                Knoxweb
-            </a>
-
-            <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarMenu"
-                    aria-controls="navbarMenu"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" aria-hidden="true"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarMenu">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dashboard">Dashboard</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/tentang">Tentang</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/komang">Komang</a>
-                    </li>
-
-                </ul>
-            </div>
-
+            <dialog class="drawer drawer-end" tabindex="-1" id="navbarNav" aria-labelledby="navbarNavLabel">
+                <div class="drawer-header">
+                    <h5 class="drawer-title" id="navbarNavLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
+                </div>
+                <div class="drawer-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </dialog>
         </div>
     </nav>
 
-    <!-- Konten setiap halaman -->
-    <main class="container py-4">
-        @yield('content')
-    </main>
+    {{-- navbar selesai disini --}}
+    @yield('content')
+    <div class="container">
 
-    <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+
+    {{-- footer mulai disini --}}
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col sm:d-flex sm:items-center sm:justify-content-between">
+                    <div>© 2024</div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Legal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Terms</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {{-- footer selesai disini --}}
 
 </body>
+
 </html>
