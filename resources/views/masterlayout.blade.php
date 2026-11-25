@@ -1,81 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous">
-    </script>
+    <title>@yield('title', 'UTS Pem Web')</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .add-card {
+            min-height: 460px;
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .add-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .08) !important;
+        }
+
+        .btn-plus-circle {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #74cc77 0%, #58b95c 100%);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(88, 185, 92, 0.25);
+            transition: transform 0.15s ease;
+        }
+
+        .add-card:hover .btn-plus-circle {
+            transform: scale(1.06);
+        }
+
+        .biodata-img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
 </head>
 
 <body>
-    {{-- navbar mulai disini --}}
-    <nav class="navbar sm:navbar-expand bg-1 fg-2">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="btn-icon navbar-toggler" type="button" data-bs-toggle="drawer" data-bs-target="#navbarNav"
+    {{-- Navbar --}}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand" href="{{ route('home') }}">UTS Pem Web</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" aria-hidden="true"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <dialog class="drawer drawer-end" tabindex="-1" id="navbarNav" aria-labelledby="navbarNavLabel">
-                <div class="drawer-header">
-                    <h5 class="drawer-title" id="navbarNavLabel">Menu</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Close"></button>
-                </div>
-                <div class="drawer-body">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                        </li>
-                    </ul>
-                </div>
-            </dialog>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">M Farid Ikrom</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">24010110220</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    {{-- navbar selesai disini --}}
-    @yield('content')
-    <div class="container">
+    {{-- Konten Utama --}}
+    <main class="container my-4">
+        @yield('content')
+    </main>
 
-    </div>
-
-    {{-- footer mulai disini --}}
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col sm:d-flex sm:items-center sm:justify-content-between">
-                    <div>© 2024</div>
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Legal</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Terms</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    {{-- Footer --}}
+    <footer class="py-4 mt-5">
+        <div class="container">
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item">
+                    <a href="{{ route('home') }}" class="nav-link px-2 text-body-secondary small">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-2 text-body-secondary small">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-2 text-body-secondary small">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link px-2 text-body-secondary small">FAQs</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('tentang') }}" class="nav-link px-2 text-body-secondary small">About</a>
+                </li>
+            </ul>
+            <p class="text-center text-body-secondary small mb-0">
+                &copy; 2025 Dibuat Sejujurjurnya Oleh Team M Farid Ikrom dan Anas Haniif Naufal Tanpa Mencotek dari Tim Lain
+            </p>
         </div>
     </footer>
-    {{-- footer selesai disini --}}
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    @stack('scripts')
 </body>
 
 </html>

@@ -1,7 +1,8 @@
 @props([
     'variant' => 'success',
-    'button' => '',
+    'type' => 'button',
 ])
 
-<button {{ $attributes->merge(['class' => 'btn btn-' . $variant]) }}>
-    {{ $slot }}</button>
+<button type="{{ $type }}" {{ $attributes->merge(['class' => 'btn-solid theme-' . $variant]) }}>
+    {{ $slot }}
+</button>
